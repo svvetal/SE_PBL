@@ -10,14 +10,35 @@
         <a href="left" id="left"><button>LEFT</button></a>
         <a href="right" id="right"><button>RIGHT</button></a>
     </form>
-    <br>
-    <h1>Sensor Data</h1>
-    <h3>IR Sensor (CENTER) <strong> {{ ir_center }} </strong></h3>
-    <h3>IR Sensor (RIGHT) <strong> {{ ir_right }} </strong></h3>
-    <h3>IR Sensor (LEFT) <strong> {{ ir_left }} </strong></h3>
     </div>
+    <br>
+    <br>
+    <h1>IR Left Sensor : 
+    <div id='test1'></div>
+    </h1>
+    <h1>IR Center Sensor : 
+    <div id='test2'></div>
+    </h1>
+    <h1>IR Right Sensor : 
+    <div id='test3'></div>
+    </h1>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>
+      document.addEventListener("DOMContentLoaded", function(event) {
+
+    const getSensorReading = function() {
+      fetch(`http://127.0.0.1:5000/update`)  // send request to route /update
+        .then((resp) => resp.json())
+        .then(function(response) {
+          document.getElementById('test1').innerHTML =response.data1.toFixed(2);
+          document.getElementById('test2').innerHTML =response.data2.toFixed(2);
+          document.getElementById('test3').innerHTML =response.data3.toFixed(2);
+      });
+    }
+
+    getSensorReading();
+    setInterval(getSensorReading, 100);  //request for update every 1 second
+  });
           $(function() {
             $('a#forward').on('mousedown', function(e) {
               e.preventDefault()
