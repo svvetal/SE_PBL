@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>Testing</title>
+</head>
+<body>
+    <div >
+    <form>
+        <a href="forward" id="forward"><button>FORWARD</button></a>
+        <a href="backward" id="backward"><button>BACKWARD</button></a>
+        <a href="left" id="left"><button>LEFT</button></a>
+        <a href="right" id="right"><button>RIGHT</button></a>
+    </form>
+    <br>
+    <h1>Sensor Data</h1>
+    <h3>IR Sensor (CENTER) <strong> {{ ir_center }} </strong></h3>
+    <h3>IR Sensor (RIGHT) <strong> {{ ir_right }} </strong></h3>
+    <h3>IR Sensor (LEFT) <strong> {{ ir_left }} </strong></h3>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+          $(function() {
+            $('a#forward').on('mousedown', function(e) {
+              e.preventDefault()
+              $.getJSON('/forward',
+                  function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          });
+          
+          $(function() {
+            $('a#forward').on('mouseup', function(e) {
+              e.preventDefault()
+              $.getJSON('/stop',
+                  function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          });
+          
+          $(function() {
+            $('a#backward').on('mousedown', function(e) {
+              e.preventDefault()
+              $.getJSON('/backward',
+                  function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          });
+          
+          $(function() {
+            $('a#backward').on('mouseup', function(e) {
+              e.preventDefault()
+              $.getJSON('/stop',
+                  function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          });
+          
+          $(function() {
+            $('a#left').on('mousedown', function(e) {
+              e.preventDefault()
+              $.getJSON('/left',
+                  function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          });
+          
+          $(function() {
+            $('a#left').on('mouseup', function(e) {
+              e.preventDefault()
+              $.getJSON('/stop',
+                  function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          });
+          
+          $(function() {
+            $('a#right').on('mousedown', function(e) {
+              e.preventDefault()
+              $.getJSON('/right',
+                  function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          });
+          
+          $(function() {
+            $('a#right').on('mouseup', function(e) {
+              e.preventDefault()
+              $.getJSON('/stop',
+                  function(data) {
+                //do nothing
+              });
+              return false;
+            });
+          });
+    </script>
+</body>
+</html>

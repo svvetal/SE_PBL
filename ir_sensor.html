@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Testing</title>
+</head>
+<body>
+    <h1>Sensor Reading : 
+    <div id='test'></div>
+    </h1>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+
+    const getSensorReading = function() {
+      fetch(`http://127.0.0.1:5000/update`)  // send request to route /update
+        .then((resp) => resp.json())
+        .then(function(response) {
+          document.getElementById('test').innerHTML =response.data.toFixed(2);
+      });
+    }
+
+    getSensorReading();
+    setInterval(getSensorReading, 100);  //request for update every 1 second
+  });
+</script>
+
+ 
+</body>
+</html>
