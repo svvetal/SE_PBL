@@ -6,7 +6,7 @@ if os.environ.get('CAMERA'):
 else:
     from camera import Camera
 
-app = Flask(__name__, template_folder='template')
+app = Flask(__name__, template_folder='templates')
 
 @app.route('/')
 def index():

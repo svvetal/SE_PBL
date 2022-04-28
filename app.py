@@ -28,6 +28,8 @@ ir_left = 2
 ir_center = 3
 ir_right = 4
 buzz = 17
+obs_led = 16
+pow_led = 21
 
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
@@ -45,6 +47,10 @@ GPIO.setup(ir_center, GPIO.IN)
 GPIO.setup(ir_right, GPIO.IN)
 GPIO.setup(buzz, GPIO.OUT)
 GPIO.output(buzz,0)
+GPIO.setup(obs_led, GPIO.OUT)
+GPIO.output(obs_led,0)
+GPIO.setup(pow_led, GPIO.OUT)
+GPIO.output(pow_led,1)
 
 servo = 26
 
@@ -206,21 +212,27 @@ def update():
     if data_1 == 0:
         irl = "Obstacle Detected"
         GPIO.output(buzz, 1)
+        GPIO.output(obs_led, 1)
     elif data_2 == 0:
         irc = "Obstacle Detected"
         GPIO.output(buzz, 1)
+        GPIO.output(obs_led, 1)
     elif data_3 == 0:
         irr = "Obstacle Detected"
         GPIO.output(buzz, 1)
+        GPIO.output(obs_led, 1)
     elif data_1 == 1:
         irl = "No Obstacle Detected"
         GPIO.output(buzz, 0)
+        GPIO.output(obs_led, 0)
     elif data_2 == 1:
         irc = "No Obstacle Detected"
         GPIO.output(buzz, 0)
+        GPIO.output(obs_led, 0)
     elif data_3 == 1:
         irr = "No Obstacle Detected"
         GPIO.output(buzz, 0)
+        GPIO.output(obs_led, 0)
     templateData = {'data1' : irl, 'data2' : irc, 'data3' : irr}
     return jsonify(templateData), 200
 
