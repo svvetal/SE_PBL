@@ -75,7 +75,7 @@
       <div class="col">
         <div class="camera">
           <h2 style="color: white; text-align: center">Live RasPi Camera Feed</h2>
-          <img src="static\download.jpg" height="450px" width="700px">
+          <img src="{{ url_for('video_feed') }}" height="450px" width="700px">
         </div>
       </div>
       <div class="col">
@@ -131,7 +131,7 @@
     document.addEventListener("DOMContentLoaded", function (event) {
 
       const getSensorReading = function () {
-        fetch(`http://127.0.0.1:5000/update`)  // send request to route /update
+        fetch(`http://0.0.0.0:8000/update`)  // send request to route /update
           .then((resp) => resp.json())
           .then(function (response) {
             document.getElementById('test1').innerHTML = response.data1;
@@ -239,7 +239,7 @@
         if (this.readyState == 4 && this.status == 200) {
         }
       };
-      xhttp.open("GET", "http://127.0.0.1:5000/set_speed?speed=" + slider.value, true);
+      xhttp.open("GET", "http://0.0.0.0:8000/set_speed?speed=" + slider.value, true);
       xhttp.send();
     }
   </script>
