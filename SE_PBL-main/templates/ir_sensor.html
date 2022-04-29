@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Testing</title>
+</head>
+<body>
+    <h1>IR Left Sensor : 
+    <div id='test1'></div>
+    </h1>
+    <h1>IR Center Sensor : 
+    <div id='test2'></div>
+    </h1>
+    <h1>IR Right Sensor : 
+    <div id='test3'></div>
+    </h1>
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+
+    const getSensorReading = function() {
+      fetch(`http://127.0.0.1:5000/update`)  // send request to route /update
+        .then((resp) => resp.json())
+        .then(function(response) {
+          document.getElementById('test1').innerHTML =response.data1.toFixed(2);
+          document.getElementById('test2').innerHTML =response.data2.toFixed(2);
+          document.getElementById('test3').innerHTML =response.data3.toFixed(2);
+      });
+    }
+
+    getSensorReading();
+    setInterval(getSensorReading, 100);  //request for update every 1 second
+  });
+</script>
+
+ 
+</body>
+</html>

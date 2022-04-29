@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- FOnt Awesome -->
+    <script src="https://kit.fontawesome.com/e48d166edc.js" crossorigin="anonymous"></script>
+
+
+    <title>Login</title>
+    <style>
+        /* Coding With Nick */
+
+        /* GEneral stuff */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: sans-serif;
+            line-height: 1.15;
+        }
+
+        body {
+            font-family: 'lato', sans-serif;
+            color: #454545;
+            font-weight: 300;
+            background: #ffffff;
+        }
+
+        a {
+            color: #333333;
+            font-weight: 400;
+            outline: none;
+            text-decoration: none;
+            transition: 0.5s;
+        }
+
+        a:hover,
+        a:focus {
+            outline: none;
+            text-decoration: none;
+        }
+
+        p {
+            padding: 0;
+            margin: 0 0 15px 0;
+            color: #454545;
+            font-weight: 300;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            padding: 0;
+            margin: 0 0 15px 0;
+            color: #333333;
+            font-weight: 700;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .section-title {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 80px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .section-title h1 {
+            display: inline-block;
+            font-size: 35px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #000000;
+            margin: 0 0 5px;
+            position: relative;
+        }
+
+        .section-title h1::before {
+            content: '';
+            left: 0;
+            position: absolute;
+            height: 3px;
+            right: 32%;
+            background-color: #50c5fc;
+            bottom: -5px;
+
+        }
+
+        .container .section-title h1::before {
+            left: 30%;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .column {
+            position: relative;
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .team {
+            margin-bottom: 30px;
+        }
+
+        .team .team-img {
+            position: relative;
+            font-size: 0;
+            text-align: center;
+        }
+
+        .team .team-img img {
+            width: 160px;
+            height: auto;
+            border-radius: 100%;
+            border: 20px solid #f3f4fa;
+        }
+
+        .team .team-content {
+            padding: 80px 20px 20px 20px;
+            margin-top: -80px;
+            text-align: center;
+            background: #f3f4fa;
+            border-radius: 10px;
+        }
+
+        .team .team-content h2 {
+            font-size: 25px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .team .team-content h3 {
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        .team .team-content h4 {
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        .team .team-content p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+        }
+
+        .team .team-social {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 35px;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .6);
+            transition: all .3s;
+            font-size: 0;
+            z-index: 1;
+            opacity: 0;
+        }
+
+        .team:hover .team-social {
+            opacity: 1;
+        }
+
+        .team .team-social a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin-right: 5px;
+            padding: 11px 0 10px 0;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 16px;
+            text-align: center;
+            color: #ffffff;
+            border-radius: 10px;
+            transition: all .3s;
+            margin-top: 50px;
+        }
+
+        .team .team-social a.social-tw {
+            background: #00acee;
+        }
+
+        .team .team-social a.social-fb {
+            background: #3b5998;
+        }
+
+        .team .team-social a.social-li {
+            background: #0e76a8;
+        }
+
+        .team .team-social a.social-in {
+            background: #3f729b;
+        }
+
+        .team .team-social a.social-yt {
+            background: #c4302b;
+        }
+
+        .team .team-social a:last-child {
+            margin-right: 0;
+        }
+
+        .team:hover .team-social a {
+            margin-top: 0;
+        }
+
+        .team .team-social a:hover {
+            background: #222222;
+        }
+
+
+        /* Mobile Responsive */
+
+        @media (min-width: 576px) {
+            .container {
+                max-width: 540px;
+            }
+
+            .column {
+                max-width: 50%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                max-width: 720px;
+            }
+
+            .column {
+                max-width: 33.333333%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                max-width: 960px;
+            }
+
+            .column {
+                max-width: 25%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 1140px;
+            }
+
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(32,32,32);">
+    <!--NAVBAR-->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+                    class="bi bi-cpu-fill" viewBox="0 0 16 16">
+                    <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+                    <path
+                        d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z" />
+                </svg>
+                <img src="">
+                <span style="font-size: 25px;">IoTech</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/"
+                            style="font-size: 20px; margin-left: 1.2em;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{url_for('about')}}"
+                            style="font-size: 20px; margin-left: 1.2em;">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{url_for('register')}}"
+                            style="font-size: 20px; margin-left: 1.2em;">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{url_for('login')}}"
+                            style="font-size: 20px; margin-left: 1.2em;">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{url_for('contact')}}"
+                            style="font-size: 20px; margin-left: 1.2em;">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-bottom: 2%;">
+        <div class="section-title">
+            <h1 style="color: white;">Our   Team</h1>
+        </div>
+
+        <div class="row">
+
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="static\shub.jpeg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Shubham Vetal</h2>
+                        <h3>Project Head</h3>
+                        <p>Software and Hardware Integration (CAD Design)</p>
+                        <h4>svvetal14@gmail.com</h4>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" class="social-tw"> <i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-fb"> <i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-in"> <i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-yt"> <i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="static\sans.jpg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Sanskruti Patil</h2>
+                        <h3>Software Tech</h3>
+                        <p>Front-End Developer WebPage Integration</p>
+                        <h4>psanskruti09@gmail.com</h4>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" class="social-tw"> <i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-fb"> <i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-in"> <i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-yt"> <i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="static\mitts.jpeg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Mitul Shah</h2>
+                        <h3>Software Tech</h3>
+                        <p>UI/UX and WebPage Designing</p>
+                        <h4>mitulshah0709@gmail.com</h4>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" class="social-tw"> <i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-fb"> <i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-in"> <i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-yt"> <i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="team">
+                    <div class="team-img">
+                        <img src="static\vish.jpeg" alt="Team Image">
+                    </div>
+                    <div class="team-content">
+                        <h2>Vishwajit Patil</h2>
+                        <h3>Hardware Tech</h3>
+                        <p>Circuit Building and Circuit Designing</p>
+                        <h4>raj22cric@gmail.com</h4>
+                    </div>
+                    <div class="team-social">
+                        <a href="#" class="social-tw"> <i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-fb"> <i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-li"> <i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-in"> <i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-yt"> <i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--FOOTER-->
+    <footer class="footer mt-auto py-3 bg-light">
+        <span class="text-muted" style="margin-left: 2%;">Developed and Maintained by @IoTech</span>
+        <a href="#"><svg style="margin-left: 65%;" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+                <path
+                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+            </svg></a>
+        <a href="#"><svg style="margin-left: 1%;" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                <path
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+            </svg></a>
+        <a href="#"><svg style="margin-left: 1%;" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                <path
+                    d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+            </svg></a>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
